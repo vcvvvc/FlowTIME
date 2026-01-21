@@ -1,7 +1,20 @@
-# C++ objects and libs
+# =========================
+# macOS 系统文件 (必选)
+# =========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+# =========================
+# C++ 编译中间文件 & 库文件
+# =========================
 *.slo
 *.lo
 *.o
+*.obj
 *.a
 *.la
 *.lai
@@ -10,45 +23,92 @@
 *.dll
 *.dylib
 
-# Qt-es
+# =========================
+# Qt 编译生成文件 (Qt Generated)
+# =========================
+# MOC (Meta-Object Compiler)
+*.moc
+moc_*.cpp
+moc_*.h
+
+# UI (User Interface Compiler)
+ui_*.h
+
+# Resource (RCC)
+qrc_*.cpp
+*_qmlcache.qrc
+
+# QML & 翻译文件
+*.qmlc
+*.jsc
+*.qm
+*.prl
+
+# 插件与导入
+*_plugin_import.cpp
+
+# =========================
+# 构建系统文件 (Build System)
+# =========================
+# Makefiles
+Makefile*
+.qmake.cache
+.qmake.stash
+
+# Qt Creator 脚本
 object_script.*.Release
 object_script.*.Debug
-*_plugin_import.cpp
-/.qmake.cache
-/.qmake.stash
+
+# 构建目录 (兼容影子构建)
+*build-*
+build/
+bin/
+debug/
+release/
+
+# =========================
+# macOS Qt 应用程序包 (重要)
+# =========================
+# Mac 上编译出来的程序是文件夹，必须忽略
+*.app/
+*.dmg
+*.framework/
+
+# =========================
+# IDE 配置文件 (Qt Creator / CMake)
+# =========================
+# Qt Creator 用户配置 (绝对不要提交)
 *.pro.user
 *.pro.user.*
 *.qbs.user
 *.qbs.user.*
-*.moc
-moc_*.cpp
-moc_*.h
-qrc_*.cpp
-ui_*.h
-*.qmlc
-*.jsc
-Makefile*
-*build-*
-*.qm
-*.prl
-
-# Qt unit tests
-target_wrapper.*
-
-# QtCreator
-*.autosave
-
-# QtCreator Qml
+CMakeLists.txt.user*
 *.qmlproject.user
 *.qmlproject.user.*
-
-# QtCreator CMake
-CMakeLists.txt.user*
-
-# QtCreator 4.8< compilation database
-compile_commands.json
-
-# QtCreator local machine specific files for imported projects
 *creator.user*
 
-*_qmlcache.qrc
+# 自动保存文件
+*.autosave
+
+# Qt 单元测试
+target_wrapper.*
+
+# =========================
+# CMake 具体配置 (Qt6 默认使用 CMake)
+# =========================
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+*.cmake
+!Qt6Setup.cmake
+# Clang compilation database (通常由构建生成，不需要提交)
+compile_commands.json
+
+# =========================
+# 其他 IDE (可选)
+# =========================
+.vscode/
+.idea/
+*.xcodeproj/
+*.xcworkspace/
